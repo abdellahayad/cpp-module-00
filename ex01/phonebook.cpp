@@ -15,7 +15,7 @@ void    PhoneBook::addContact()
 }
 
 void    PhoneBook::searchContact()
-{
+{ 
     std::string input;
 
     if (contactCount == 0)
@@ -27,8 +27,8 @@ void    PhoneBook::searchContact()
     for (int i = 0; i < contactCount; i++)
         contacts[i].displayBrief(i);
     while (true)
-    {
-        std::cout << "Enter index for more details: ";
+    {  
+        std::cout << "Enter index for more details: "; 
         std::getline(std::cin, input);
 
         if (std::cin.eof())

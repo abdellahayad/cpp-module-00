@@ -1,24 +1,27 @@
 #include "PhoneBook.h"
 
-bool Contact::isValidInput(const std::string& input) {
+bool Contact::isValidInput(const std::string& input)
+{
     if (input.empty())
         return false;
-    for (size_t i = 0; i < input.length(); ++i) {
-        if (!isprint(input[i]) || isspace(input[i])) {
-            return false;
+    for (size_t i = 0; i < input.size(); ++i) {
+        if (!isprint(input[i])) {
+            return (false);
         }
     }
     return true;
 }
 
-std::string Contact::getValidInput(const std::string& prompt) {
+std::string Contact::getValidInput(const std::string &prompt)
+{
     std::string input;
 
     std::cout << prompt << " : ";
     std::getline(std::cin, input);
     if (std::cin.eof())
         exit (0);
-    while (!isValidInput(input))
+    while (!isValidInput(input) ||
+        (prompt == "Phone number" && input.find_first_not_of("0123456789") < input.size()))
     {
         std::cout << prompt << " (try again) : ";
         std::getline(std::cin, input);
@@ -27,7 +30,8 @@ std::string Contact::getValidInput(const std::string& prompt) {
     }
     return input;
 }
-void Contact::setInfo() {
+void Contact::setInfo()
+{
     firstName = getValidInput("First name");
     lastName = getValidInput("Last name");
     nickname = getValidInput("Nickname");
@@ -37,10 +41,10 @@ void Contact::setInfo() {
 
 std::string Contact::formatDisplay(const std::string &str)
 {
-    if (str.length() > 10)
+    if (str.size() > 10)
         return (str.substr(0, 9) + ('.'));
     else
-        return (std::string(10 - str.length(), ' ') + str);
+        return (std::string(10 - str.size(), ' ') + str);
 }
 
 void Contact::displayBrief(const int index)
