@@ -7,7 +7,7 @@ class Contact {
         std::string lastName;
         std::string nickname;
         std::string phoneNumber;
-        std::string darkestSecret;
+        std::string darkestSecret; 
     public:
         void    setInfo();
         std::string formatDisplay(const std::string& str);
@@ -16,3 +16,4 @@ class Contact {
         std::string getValidInput(const std::string& prompt);
         void    displayall();
 };
+   

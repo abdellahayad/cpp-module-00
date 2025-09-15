@@ -66,7 +66,7 @@ void	Account::makeDeposit( int deposit )
 			  << ";nb_deposits:" << _nbDeposits
 			  << std::endl;
 }
-
+ 
 void	Account::_displayTimestamp( void )
 {
 	char    buffer[20];

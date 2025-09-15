@@ -1,2 +1,0 @@
-# cpp-module-00
-

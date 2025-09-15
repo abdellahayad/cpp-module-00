@@ -1,11 +1,11 @@
-#include "PhoneBook.h"
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
 {
     contactCount = 0;
     oldcontact = 0;
 }
-void    PhoneBook::addContact()
+void    PhoneBook::addContact() 
 {
     contacts[oldcontact].setInfo();
     oldcontact = (oldcontact + 1) % 8;
