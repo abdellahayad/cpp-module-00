@@ -23,20 +23,21 @@ bool Replace::proccess()
         return (false);
     }
 
-
+    
     while (std::getline(infile, line))
     {
-
+        
         content += line;
         if (!infile.eof())
-            content += '\n';
+        content += '\n';
     }
+    
     if (infile.bad())
     {
         std::cerr << "Error : reading file failed" << std::endl;
         return (false);
     }
-    infile.close();
+    
 
     pos = 0;
     while (true)
@@ -58,7 +59,6 @@ bool Replace::proccess()
     }
 
     outfile << content;
-    outfile.close();
 
     return (true);
 }
