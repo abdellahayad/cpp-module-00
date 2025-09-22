@@ -7,7 +7,6 @@ int main(int ac, char **av)
         std::cout << "Usage: ./harlFilter <LEVEL>\n";
         return (1);
     }
-
     std::string level = av[1];
 
     Harl harl;

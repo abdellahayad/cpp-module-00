@@ -34,5 +34,7 @@ void Harl::complain(std::string level)
             (this->*functions[i])();
             return ;
         }
+        else if (i == 3)
+            std::cerr << "Error not found" << std::endl;
     }
 }
