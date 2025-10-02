@@ -8,14 +8,14 @@ class Fixed
 {
 private:
     int fixdVal;
-    static const int fracBits = 16;
+    static const int fracBits = 8;
 
 public:
     Fixed();
-    Fixed(const int n);
-    Fixed(const float f);
     Fixed(const Fixed &other);
     Fixed &operator=(const Fixed &other);
+    Fixed(const int n);
+    Fixed(const float f);
     ~Fixed();
 
     int getRawBits(void) const;
