@@ -1,8 +1,6 @@
 #include "Character.hpp"
 
-
-
-Character::Character(const std::string& name) : name(name)
+Character::Character(const std::string& name) : name(name), trash(NULL)
 {
     for (int i = 0; i < 4; i++)
         inventory[i] = NULL;
@@ -53,6 +51,14 @@ Character::~Character()
             inventory[i] = NULL;
         }
     }
+
+    while (trash)
+    {
+        node *tmp = trash;
+        trash = trash->next;
+        delete tmp->materia;
+        delete tmp;
+    }
 }
 
 std::string const& Character::getName() const{return name;}
@@ -69,13 +75,19 @@ void Character::equip(AMateria *m)
             return ;
         }
     }
+    delete m;
 }
 
 void Character::unequip(int idx)
 {
-    if (idx < 0 || idx >= 4)
+    if (idx < 0 || idx >= 4 || inventory[idx])
         return ;
-    delete inventory[idx];
+
+    node *newnode = new node;
+    newnode->materia = inventory[idx];
+    newnode->next = trash;
+    trash = newnode;
+
     inventory[idx] = NULL;
 }
 

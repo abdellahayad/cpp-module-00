@@ -19,12 +19,4 @@ class Animal{
 };
 
 
-
-
-
-
-
-
-
-
 #endif

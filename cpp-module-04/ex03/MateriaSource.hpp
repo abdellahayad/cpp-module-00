@@ -5,16 +5,16 @@
 #include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource {
-private:
-    AMateria* learned[4];
-public:
-    MateriaSource();
-    MateriaSource(const MateriaSource& copy);
-    MateriaSource& operator=(const MateriaSource& other);
-    virtual ~MateriaSource();
+    private:
+        AMateria* learned[4];
+    public:
+        MateriaSource();
+        MateriaSource(const MateriaSource& copy);
+        MateriaSource& operator=(const MateriaSource& other);
+        virtual ~MateriaSource();
 
-    virtual void learnMateria(AMateria* m);
-    virtual AMateria* createMateria(std::string const & type);
+        virtual void learnMateria(AMateria* m);
+        virtual AMateria* createMateria(std::string const & type);
 };
 
 #endif

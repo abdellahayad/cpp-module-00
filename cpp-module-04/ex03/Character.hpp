@@ -3,16 +3,21 @@
 
 #include "ICharacter.hpp"
 
-
+struct node
+{
+    AMateria *materia;
+    node *next;
+};
 
 class Character : public ICharacter
 {
     private:
         std::string name;
         AMateria *inventory[4];
+        node *trash;
 
     public:
-         Character(const std::string& name);
+        Character(const std::string& name);
         Character(const Character& copy);
         Character& operator=(const Character& other);
         ~Character();

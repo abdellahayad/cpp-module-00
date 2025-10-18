@@ -19,11 +19,4 @@ class Dog : public Animal
 
 
 
-
-
-
-
-
-
-
 #endif
